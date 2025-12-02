@@ -1,0 +1,38 @@
+.lead-form {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  max-width: 600px;
+}
+
+.lead-form label {
+  margin-top: 15px;
+  font-weight: 600;
+  display: block;
+}
+
+.lead-form input,
+.lead-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border-radius: 10px;
+  border: 1px solid #dadce0;
+  background: #f9fafb;
+}
+
+.back-btn {
+  margin-top: 25px;
+  padding: 12px 22px;
+  background: #1b63d8;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background: #0f4abf;
+}

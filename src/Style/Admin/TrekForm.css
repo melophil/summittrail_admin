@@ -1,0 +1,93 @@
+/* Main layout */
+.admin-container {
+  display: flex;
+  background: #f4f7fb;
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  padding: 30px;
+}
+
+.content-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #1b263b;
+}
+
+/* Form Layout */
+.trek-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* Inputs */
+.trek-form label {
+  margin-top: 15px;
+  font-weight: 600;
+  color: #344054;
+}
+
+.trek-form input,
+.trek-form select,
+.trek-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #d0d5dd;
+  margin-top: 6px;
+  background: white;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.trek-form input:focus,
+.trek-form select:focus,
+.trek-form textarea:focus {
+  border-color: #1b63d8;
+  box-shadow: 0 0 4px rgba(27, 99, 216, 0.3);
+}
+
+/* Upload section */
+.preview-img {
+  width: 220px;
+  border-radius: 12px;
+  margin-top: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+}
+
+.uploading {
+  color: #1b63d8;
+  font-weight: 500;
+}
+
+/* Featured checkbox */
+.featured-box {
+  margin-top: 20px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 600;
+}
+
+/* Save button */
+.save-btn {
+  margin-top: 25px;
+  padding: 12px 25px;
+  background: #1b63d8;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.save-btn:hover {
+  background: #0f4abf;
+}

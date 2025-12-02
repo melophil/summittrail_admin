@@ -1,0 +1,116 @@
+/* LAYOUT | Same styling as Dashboard & Treks */
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f7fb;
+  font-family: "Inter", sans-serif;
+}
+
+/* SIDEBAR */
+
+/* MAIN CONTENT */
+.content {
+  flex: 1;
+  padding: 30px;
+}
+
+.content-header h1 {
+  font-size: 28px;
+  color: #1b263b;
+}
+
+/* BOOKING CARDS */
+.booking-grid {
+  margin-top: 25px;
+  display: grid;
+  gap: 25px;
+}
+
+.booking-card {
+  background: white;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.06);
+  transition: 0.3s;
+}
+
+.booking-card:hover {
+  transform: translateY(-4px);
+}
+
+/* HEADER */
+.booking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.booking-header h2 {
+  font-size: 22px;
+  color: #0d1b2a;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-badge.pending {
+  background: #f6c23e;
+  color: #855d00;
+}
+
+.status-badge.approved {
+  background: #1cc88a;
+  color: #fff;
+}
+
+.status-badge.rejected {
+  background: #e74a3b;
+  color: #fff;
+}
+
+/* BOOKING INFO */
+.booking-info p {
+  margin: 6px 0;
+  color: #334155;
+}
+
+/* ACTION BUTTONS */
+.booking-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 12px;
+}
+
+.btn-approve {
+  background: #1cc88a;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-approve:hover {
+  background: #17a673;
+}
+
+.btn-reject {
+  background: #e74a3b;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-reject:hover {
+  background: #c0392b;
+}

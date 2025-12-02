@@ -1,0 +1,60 @@
+.lead-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.lead-row {
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #1b263b;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  transition: 0.2s;
+}
+
+.lead-row:hover {
+  transform: translateY(-3px);
+  background: #eef3ff;
+}
+
+.lead-row h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.muted {
+  color: #6b7280;
+}
+
+/* Status Badge */
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.status-badge.new {
+  background: #f6c23e;
+  color: #7a5600;
+}
+
+.status-badge.hot {
+  background: #ff4d4d;
+  color: #fff;
+}
+
+.status-badge.cold {
+  background: #6c757d;
+  color: #fff;
+}
+
+.status-badge.converted {
+  background: #1cc88a;
+  color: #fff;
+}

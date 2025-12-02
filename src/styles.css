@@ -1,0 +1,9 @@
+body { font-family: Inter, system-ui, Arial; margin: 0; padding: 0; background:#f7f9fc; color:#111; }
+.admin-page { padding: 28px; max-width: 1100px; margin: 0 auto; }
+header { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; }
+.list-item { display:flex; align-items:center; gap:16px; padding:12px; border:1px solid #eee; border-radius:10px; margin-bottom:12px; background:#fff; }
+.trek-form input, .trek-form textarea, .trek-form select { display:block; width:100%; margin-bottom:10px; padding:10px; border:1px solid #ddd; border-radius:8px; }
+button { padding:10px 14px; border-radius:8px; cursor:pointer; background:#0077ff; color:#fff; border:none; }
+.login-wrap { display:flex; height:100vh; align-items:center; justify-content:center; }
+.login-form { width:320px; padding:24px; border-radius:12px; background:#fff; box-shadow:0 10px 30px rgba(0,0,0,0.06); }
+.error { color: #b42323; margin-bottom:8px; }
