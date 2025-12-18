@@ -5,6 +5,8 @@ import "../Style/Admin/Sidebar.css";
 export default function Sidebar() {
   const { pathname } = useLocation();
 
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   const [openTreks, setOpenTreks] = useState(
     pathname.startsWith("/treks") ||
     pathname.startsWith("/hikes") ||
@@ -13,58 +15,113 @@ export default function Sidebar() {
   );
 
   return (
-    <aside className="sidebar">
-      <h2 className="logo">
-        SummitTrail <br /> Admin Panel
-      </h2>
+    <>
+      {/* TOGGLE BUTTON (Mobile / Tablet) */}
+      <button
+        className="sidebar-toggle-btn"
+        onClick={() => setSidebarOpen(true)}
+      >
+        ☰
+      </button>
 
-      <nav className="sidebar-nav">
+      {/* OVERLAY */}
+      <div
+        className={`sidebar-overlay ${sidebarOpen ? "show" : ""}`}
+        onClick={() => setSidebarOpen(false)}
+      ></div>
 
-        {/* DASHBOARD */}
-        <Link
-          to="/dashboard"
-          className={pathname === "/dashboard" || pathname === "/" ? "active" : ""}
+      {/* SIDEBAR */}
+      <aside className={`sidebar ${sidebarOpen ? "open" : ""}`}>
+        <h2 className="logo">
+          SummitTrail <br /> Admin Panel
+        </h2>
+
+        {/* Close button inside sidebar */}
+        <button
+          className="sidebar-close-btn"
+          onClick={() => setSidebarOpen(false)}
         >
-          Dashboard
-        </Link>
+          ✕
+        </button>
 
-        {/* TREKS GROUP */}
-        <div className="menu-group">
-          <div
-            className="menu-group-title"
-            onClick={() => setOpenTreks(!openTreks)}
+        <nav className="sidebar-nav">
+
+          {/* DASHBOARD */}
+          <Link
+            to="/dashboard"
+            onClick={() => setSidebarOpen(false)}
+            className={pathname === "/dashboard" || pathname === "/" ? "active" : ""}
           >
-            <span>Treks & Adventures</span>
-            <span className="arrow">{openTreks ? "▾" : "▸"}</span>
+            Dashboard
+          </Link>
+
+          {/* TREKS GROUP */}
+          <div className="menu-group">
+            <div
+              className="menu-group-title"
+              onClick={() => setOpenTreks(!openTreks)}
+            >
+              <span>Treks & Adventures</span>
+              <span className="arrow">{openTreks ? "▾" : "▸"}</span>
+            </div>
+
+            {openTreks && (
+              <div className="submenu">
+                <Link
+                  to="/treks"
+                  onClick={() => setSidebarOpen(false)}
+                  className={pathname.startsWith("/treks") ? "active" : ""}
+                >
+                  Treks
+                </Link>
+
+                <Link
+                  to="/hikes"
+                  onClick={() => setSidebarOpen(false)}
+                  className={pathname.startsWith("/hikes") ? "active" : ""}
+                >
+                  Hikes
+                </Link>
+
+                <Link
+                  to="/expeditions"
+                  onClick={() => setSidebarOpen(false)}
+                  className={pathname.startsWith("/expeditions") ? "active" : ""}
+                >
+                  Expeditions
+                </Link>
+
+                <Link
+                  to="/climbing"
+                  onClick={() => setSidebarOpen(false)}
+                  className={pathname.startsWith("/climbing") ? "active" : ""}
+                >
+                  Climbing
+                </Link>
+              </div>
+            )}
           </div>
 
-          {openTreks && (
-            <div className="submenu">
-              <Link to="/treks" className={pathname.startsWith("/treks") ? "active" : ""}>Treks</Link>
-              <Link to="/hikes" className={pathname.startsWith("/hikes") ? "active" : ""}>Hikes</Link>
-              <Link to="/expeditions" className={pathname.startsWith("/expeditions") ? "active" : ""}>Expeditions</Link>
-              <Link to="/climbing" className={pathname.startsWith("/climbing") ? "active" : ""}>Climbing</Link>
-            </div>
-          )}
-        </div>
+          {/* LEAD */}
+          <Link
+            to="/lead"
+            onClick={() => setSidebarOpen(false)}
+            className={pathname.startsWith("/lead") ? "active" : ""}
+          >
+            Lead
+          </Link>
 
-        {/* SIMPLE LEAD SECTION (NO GROUP, NO SUBMENU) */}
-        <Link
-          to="/lead"
-          className={pathname.startsWith("/lead") ? "active" : ""}
-        >
-          Lead
-        </Link>
+          {/* BOOKINGS */}
+          <Link
+            to="/bookings"
+            onClick={() => setSidebarOpen(false)}
+            className={pathname.startsWith("/bookings") ? "active" : ""}
+          >
+            Bookings
+          </Link>
 
-        {/* BOOKINGS */}
-        <Link
-          to="/bookings"
-          className={pathname.startsWith("/bookings") ? "active" : ""}
-        >
-          Bookings
-        </Link>
-
-      </nav>
-    </aside>
+        </nav>
+      </aside>
+    </>
   );
 }
