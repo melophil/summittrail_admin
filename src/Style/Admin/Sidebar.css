@@ -211,3 +211,28 @@
   opacity: 1;
   pointer-events: auto;
 }
+/* === Fix: Sidebar internal scroll === */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 50px;
+}
+
+/* Scrollbar styling for the inner menu */
+.sidebar-nav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background: #1b263b;
+  border-radius: 10px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
