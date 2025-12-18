@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # -------------------------
 # Node & Dependencies
 # -------------------------
@@ -59,3 +60,8 @@ coverage/
 # Optional: Upload folders (if any)
 # -------------------------
 /uploads/
+=======
+node_modules
+dist
+.cache
+>>>>>>> 9d308ffcdb7972fd04d3132146fb2297ead3f2d9
