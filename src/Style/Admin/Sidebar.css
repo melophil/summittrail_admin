@@ -6,12 +6,28 @@
   background: #0d1b2a;
   color: #fff;
   padding: 10px 10px;
-  min-height: 100vh;
+  height: 100vh;              /* FULL HEIGHT for scrolling */
+  overflow-y: auto;            /* ENABLE VERTICAL SCROLL */
+  overflow-x: hidden;          /* prevent horizontal scroll */
+  scrollbar-width: thin;       /* Firefox */
+  scrollbar-color: #1b263b transparent;
   transition: all 0.3s ease;
   position: fixed;
   left: 0;
   top: 0;
   z-index: 1200;
+}
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #1b263b;
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 /* Close button (hidden on desktop) */
