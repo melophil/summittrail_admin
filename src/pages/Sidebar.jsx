@@ -96,8 +96,16 @@ export default function Sidebar() {
                   onClick={() => setSidebarOpen(false)}
                   className={pathname.startsWith("/climbing") ? "active" : ""}
                 >
-                  Climbing
+                  Rock Climbing
                 </Link>
+                <Link
+  to="/valley-pass"
+  onClick={() => setSidebarOpen(false)}
+  className={pathname.startsWith("/valley-pass") ? "active" : ""}
+>
+  Valley Pass
+</Link>
+
               </div>
             )}
           </div>

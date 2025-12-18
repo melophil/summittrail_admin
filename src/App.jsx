@@ -8,6 +8,12 @@ import TrekForm from './pages/TrekForm';
 import Bookings from './pages/Bookings';
 import Leads from './pages/Leads';
 import LeadForm from './pages/LeadForm';
+import ValleyPassList from "./pages/ValleyPassList";
+import ValleyPassForm from "./pages/ValleyPassForm";
+import RockClimbingForm from './pages/RockClimbingForm';
+import RockClimbingList from './pages/RockClimbingList';
+
+
 
 import api, { setToken } from './api';
 
@@ -46,6 +52,18 @@ function App(){
       <Route path="/expeditions" element={ token ? <ExpeditionList /> : <Navigate to="/login" /> } />
       <Route path="/expeditions/new" element={ token ? <ExpeditionForm /> : <Navigate to="/login" /> } />
       <Route path="/expeditions/edit/:id" element={ token ? <ExpeditionForm /> : <Navigate to="/login" /> } />
+
+{/* Rock Climbing */}
+<Route path="/climbing" element={token ? <RockClimbingList /> : <Navigate to="/login" />} />
+<Route path="/climbing/new" element={token ? <RockClimbingForm /> : <Navigate to="/login" />} />
+<Route path="/climbing/edit/:id" element={token ? <RockClimbingForm /> : <Navigate to="/login" />} />
+
+{/* Valley Pass */}
+<Route path="/valley-pass" element={token ? <ValleyPassList /> : <Navigate to="/login" />} />
+<Route path="/valley-pass/new" element={token ? <ValleyPassForm /> : <Navigate to="/login" />} />
+<Route path="/valley-pass/edit/:id" element={token ? <ValleyPassForm /> : <Navigate to="/login" />} />
+
+
 
       {/* Bookings */}
       <Route path="/bookings" element={ token ? <Bookings /> : <Navigate to="/login" /> } />
