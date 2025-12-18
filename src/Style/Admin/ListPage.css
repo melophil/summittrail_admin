@@ -1,55 +1,161 @@
+/* ============================
+   MAIN LAYOUT
+============================ */
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f7fb;
+  font-family: "Inter", sans-serif;
+}
+
+/* ============================
+   CONTENT AREA
+============================ */
+.content {
+  flex: 1;
+  padding: 30px;
+}
+
 .content-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
-.create-btn {
-  padding: 8px 14px;
-  background: #0084ff;
-  color: white;
-  border-radius: 6px;
+.content-header h1 {
+  font-size: 28px;
+  color: #1b263b;
+}
+
+/* ============================
+   PRIMARY BUTTON
+============================ */
+.btn-primary {
+  background: #1b63d8;
+  padding: 10px 18px;
+  color: #fff;
+  border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
+  transition: 0.3s;
 }
 
-.list-table table {
+.btn-primary:hover {
+  background: #0f4abf;
+}
+
+/* ============================
+   GRID LAYOUT
+============================ */
+.trek-grid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* ============================
+   CARD
+============================ */
+.trek-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 15px;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.trek-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+
+/* ============================
+   IMAGE
+============================ */
+.trek-image {
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.list-table th,
-.list-table td {
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
-}
-
-.thumb {
-  width: 60px;
-  height: 40px;
+  height: 170px;
+  border-radius: 10px;
   object-fit: cover;
-  border-radius: 6px;
 }
 
-.actions {
+/* ============================
+   INFO TEXT
+============================ */
+.trek-info h3 {
+  margin-top: 14px;
+  font-size: 20px;
+  color: #0d1b2a;
+}
+
+.muted {
+  color: #6c7a89;
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+/* ============================
+   ACTION BUTTONS
+============================ */
+.trek-actions {
+  margin-top: 16px;
   display: flex;
-  gap: 10px;
+  gap: 12px;
 }
 
-.edit-btn {
-  padding: 6px 12px;
-  background: #ffaa00;
-  border-radius: 6px;
-  color: #000;
+.btn-edit {
+  flex: 1;
+  padding: 8px 14px;
+  background: #1b63d8;
+  color: #ffffff;
+  border-radius: 8px;
   text-decoration: none;
+  text-align: center;
+  font-weight: 500;
+  transition: 0.3s;
 }
 
-.delete-btn {
-  padding: 6px 12px;
-  background: #ff4444;
-  color: white;
-  border-radius: 6px;
+.btn-edit:hover {
+  background: #0f4abf;
+}
+
+.btn-delete {
+  flex: 1;
+  padding: 8px 14px;
+  background: #d62828;
+  color: #ffffff;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn-delete:hover {
+  background: #b31c1c;
+}
+
+/* ============================
+   MOBILE OPTIMIZATION
+============================ */
+@media (max-width: 768px) {
+  .content {
+    padding: 20px;
+  }
+
+  .content-header h1 {
+    font-size: 22px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .trek-image {
+    height: 160px;
+  }
 }

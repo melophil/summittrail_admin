@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import api from "../api";
 import Sidebar from "./Sidebar";
 import { Link } from "react-router-dom";
-import "../Style/Admin/ListPage.css";
+import "../Style/Admin/Dashboard.css"; // ✅ use card CSS
 
 export default function RockClimbingList() {
   const [items, setItems] = useState([]);
@@ -29,54 +29,47 @@ export default function RockClimbingList() {
       <main className="content">
         <header className="content-header">
           <h1>Rock Climbing</h1>
-          <Link to="/climbing/new" className="create-btn">
+          <Link to="/climbing/new" className="btn-primary">
             + Add Rock Climbing
           </Link>
         </header>
 
-        <div className="list-table">
-          <table>
-            <thead>
-              <tr>
-                <th>Image</th>
-                <th>Title</th>
-                <th>Location</th>
-                <th>Difficulty</th>
-                <th>Duration</th>
-                <th></th>
-              </tr>
-            </thead>
+        {/* CARD GRID */}
+        <div className="trek-grid">
+          {items.map((climb) => (
+            <div className="trek-card" key={climb._id}>
 
-            <tbody>
-              {items.map((c) => (
-                <tr key={c._id}>
-                  <td>
-                    <img src={c.image} alt="" className="thumb" />
-                  </td>
-                  <td>{c.title}</td>
-                  <td>{c.location}</td>
-                  <td>{c.difficulty}</td>
-                  <td>{c.duration}</td>
+              <img
+                src={climb.image}
+                alt={climb.title}
+                className="trek-image"
+              />
 
-                  <td className="actions">
-                    <Link
-                      to={`/climbing/edit/${c._id}`}
-                      className="edit-btn"
-                    >
-                      Edit
-                    </Link>
+              <div className="trek-info">
+                <h3>{climb.title}</h3>
+                <p className="muted">Location: {climb.location}</p>
+                <p className="muted">Difficulty: {climb.difficulty}</p>
+                <p className="muted">Duration: {climb.duration}</p>
+              </div>
 
-                    <button
-                      onClick={() => remove(c._id)}
-                      className="delete-btn"
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+              <div className="trek-actions">
+                <Link
+                  to={`/climbing/edit/${climb._id}`}
+                  className="btn-edit"
+                >
+                  Edit
+                </Link>
+
+                <button
+                  onClick={() => remove(climb._id)}
+                  className="btn-delete"
+                >
+                  Delete
+                </button>
+              </div>
+
+            </div>
+          ))}
         </div>
       </main>
     </div>

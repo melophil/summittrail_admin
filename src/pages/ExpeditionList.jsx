@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import api from "../api";
 import Sidebar from "./Sidebar";
 import { Link } from "react-router-dom";
-import "../Style/Admin/ListPage.css";
+import "../Style/Admin/Dashboard.css"; // ✅ card-based CSS
 
 export default function ExpeditionList() {
   const [items, setItems] = useState([]);
@@ -29,54 +29,47 @@ export default function ExpeditionList() {
       <main className="content">
         <header className="content-header">
           <h1>Expeditions</h1>
-          <Link to="/expeditions/new" className="create-btn">
+          <Link to="/expeditions/new" className="btn-primary">
             + Add Expedition
           </Link>
         </header>
 
-        <div className="list-table">
-          <table>
-            <thead>
-              <tr>
-                <th>Image</th>
-                <th>Title</th>
-                <th>Country</th>
-                <th>Difficulty</th>
-                <th>Duration</th>
-                <th></th>
-              </tr>
-            </thead>
+        {/* CARD GRID */}
+        <div className="trek-grid">
+          {items.map((exp) => (
+            <div className="trek-card" key={exp._id}>
 
-            <tbody>
-              {items.map((e) => (
-                <tr key={e._id}>
-                  <td>
-                    <img src={e.image} alt="" className="thumb" />
-                  </td>
-                  <td>{e.title}</td>
-                  <td>{e.country}</td>
-                  <td>{e.difficulty}</td>
-                  <td>{e.durationDays} days</td>
+              <img
+                src={exp.image}
+                alt={exp.title}
+                className="trek-image"
+              />
 
-                  <td className="actions">
-                    <Link
-                      to={`/expeditions/edit/${e._id}`}
-                      className="edit-btn"
-                    >
-                      Edit
-                    </Link>
-                    <button
-                      className="delete-btn"
-                      onClick={() => remove(e._id)}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
+              <div className="trek-info">
+                <h3>{exp.title}</h3>
+                <p className="muted">Country: {exp.country}</p>
+                <p className="muted">Difficulty: {exp.difficulty}</p>
+                <p className="muted">Duration: {exp.durationDays} days</p>
+              </div>
 
-          </table>
+              <div className="trek-actions">
+                <Link
+                  to={`/expeditions/edit/${exp._id}`}
+                  className="btn-edit"
+                >
+                  Edit
+                </Link>
+
+                <button
+                  className="btn-delete"
+                  onClick={() => remove(exp._id)}
+                >
+                  Delete
+                </button>
+              </div>
+
+            </div>
+          ))}
         </div>
       </main>
     </div>

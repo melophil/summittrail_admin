@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import api from "../api";
 import Sidebar from "./Sidebar";
 import { Link } from "react-router-dom";
-import "../Style/Admin/ListPage.css";
+import "../Style/Admin/Dashboard.css"; // ✅ use unified card CSS
 
 export default function ValleyPassList() {
   const [items, setItems] = useState([]);
@@ -29,55 +29,47 @@ export default function ValleyPassList() {
       <main className="content">
         <header className="content-header">
           <h1>Valley Pass</h1>
-          <Link to="/valley-pass/new" className="create-btn">
+          <Link to="/valley-pass/new" className="btn-primary">
             + Add Valley Pass
           </Link>
         </header>
 
-        <div className="list-table">
-          <table>
-            <thead>
-              <tr>
-                <th>Image</th>
-                <th>Title</th>
-                <th>Region</th>
-                <th>Best Season</th>
-                <th>Price</th>
-                <th></th>
-              </tr>
-            </thead>
+        {/* CARD GRID */}
+        <div className="trek-grid">
+          {items.map((pass) => (
+            <div className="trek-card" key={pass._id}>
 
-            <tbody>
-              {items.map((v) => (
-                <tr key={v._id}>
-                  <td>
-                    <img src={v.image} alt="" className="thumb" />
-                  </td>
-                  <td>{v.title}</td>
-                  <td>{v.region}</td>
-                  <td>{v.bestSeason}</td>
-                  <td>₹{v.pricePerPerson}</td>
+              <img
+                src={pass.image}
+                alt={pass.title}
+                className="trek-image"
+              />
 
-                  <td className="actions">
-                    <Link
-                      to={`/valley-pass/edit/${v._id}`}
-                      className="edit-btn"
-                    >
-                      Edit
-                    </Link>
+              <div className="trek-info">
+                <h3>{pass.title}</h3>
+                <p className="muted">Region: {pass.region}</p>
+                <p className="muted">Best Season: {pass.bestSeason}</p>
+                <p className="muted">Price: ₹{pass.pricePerPerson}</p>
+              </div>
 
-                    <button
-                      onClick={() => remove(v._id)}
-                      className="delete-btn"
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
+              <div className="trek-actions">
+                <Link
+                  to={`/valley-pass/edit/${pass._id}`}
+                  className="btn-edit"
+                >
+                  Edit
+                </Link>
 
-          </table>
+                <button
+                  onClick={() => remove(pass._id)}
+                  className="btn-delete"
+                >
+                  Delete
+                </button>
+              </div>
+
+            </div>
+          ))}
         </div>
       </main>
     </div>
